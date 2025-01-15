@@ -67,6 +67,7 @@ If you have some suggestions, feel free to create an issue.
 
 ## Running Locally
 
+### With pnpm
 1. Install dependencies using pnpm:
 
 ```sh
@@ -84,6 +85,14 @@ cp .env.example .env.local
 ```sh
 pnpm dev
 ```
+
+
+### With Docker and docker compose
+
+```sh
+pnpm docker-dev
+```
+
 
 ## License
 
