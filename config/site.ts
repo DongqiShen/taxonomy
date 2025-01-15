@@ -1,13 +1,13 @@
 import { SiteConfig } from "types"
 
 export const siteConfig: SiteConfig = {
-  name: "Taxonomy",
+  name: "Xpop",
   description:
-    "An open source application built using the new router, server components and everything new in Next.js 13.",
+    "Xpop: An open-source tool for instant text actions on macOS—partially compatible with PopClip's plugin system, enhanced with AI-powered capabilities.",
   url: "https://tx.shadcn.com",
   ogImage: "https://tx.shadcn.com/og.jpg",
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/taxonomy",
+    twitter: "https://x.com/corgi_shum",
+    github: "https://github.com/DongqiShen/Xpop",
   },
 }
