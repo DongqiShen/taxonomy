@@ -12,7 +12,7 @@ export const marketingConfig: MarketingConfig = {
     // },
     {
       title: "Guide",
-      href: "/guides",
+      href: "/guide",
     },
     // {
     //   title: "Blog",
