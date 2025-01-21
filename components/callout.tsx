@@ -14,14 +14,18 @@ export function Callout({
 }: CalloutProps) {
   return (
     <div
-      className={cn("my-6 flex items-start rounded-md border border-l-4 p-4", {
-        "border-red-900 bg-red-50": type === "danger",
-        "border-yellow-900 bg-yellow-50": type === "warning",
-      })}
+      className={cn(
+        "my-6 flex items-start rounded-md p-4",
+        {
+          "bg-red-50 dark:bg-red-900": type === "danger",
+          "bg-yellow-50 dark:bg-yellow-900": type === "warning",
+        },
+        "text-gray-900 dark:text-gray-100" // 默认文本颜色
+      )}
       {...props}
     >
       {icon && <span className="mr-4 text-2xl">{icon}</span>}
       <div>{children}</div>
     </div>
-  )
+  );
 }

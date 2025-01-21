@@ -142,13 +142,13 @@ export const docsConfig: DocsConfig = {
       title: "Getting Started",
       items: [
         {
-          title: "Introduction",
+          title: "Welcome",
           href: "/guide",
         },
       ],
     },
     {
-      title: "Documentation",
+      title: "User Guide",
       items: [
         {
           title: "Introduction",

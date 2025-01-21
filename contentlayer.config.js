@@ -38,7 +38,7 @@ export const Doc = defineDocumentType(() => ({
 
 export const Guide = defineDocumentType(() => ({
   name: "Guide",
-  filePathPattern: `guides/**/*.mdx`,
+  filePathPattern: `guide/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -48,17 +48,9 @@ export const Guide = defineDocumentType(() => ({
     description: {
       type: "string",
     },
-    date: {
-      type: "date",
-      required: true,
-    },
     published: {
       type: "boolean",
       default: true,
-    },
-    featured: {
-      type: "boolean",
-      default: false,
     },
   },
   computedFields,

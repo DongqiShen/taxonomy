@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { allDocs } from "contentlayer/generated"
+import { allDocs, allGuides } from "contentlayer/generated"
 
 import { getTableOfContents } from "@/lib/toc"
 import { Mdx } from "@/components/mdx-components"
@@ -21,7 +21,7 @@ interface DocPageProps {
 
 async function getDocFromParams(params) {
   const slug = params.slug?.join("/") || ""
-  const doc = allDocs.find((doc) => doc.slugAsParams === slug)
+  const doc = allGuides.find((doc) => doc.slugAsParams === slug)
 
   if (!doc) {
     null
