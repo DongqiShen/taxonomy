@@ -151,13 +151,12 @@ export const docsConfig: DocsConfig = {
       title: "User Guide",
       items: [
         {
-          title: "Introduction",
-          href: "/guide/documentation",
+          title: "Installation",
+          href: "/guide/installation",
         },
         {
-          title: "Contentlayer",
-          href: "/guide/in-progress",
-          disabled: true,
+          title: "Extensions",
+          href: "/guide/extensions",
         },
         {
           title: "Components",

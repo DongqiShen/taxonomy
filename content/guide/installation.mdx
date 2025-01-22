@@ -1,0 +1,60 @@
+---
+title: Installation
+description: Guide for installing Xpop.
+---
+
+## Download Xpop
+
+Download the latest version of Xpop from the [GitHub Releases page](https://github.com/DongqiShen/Xpop/releases).
+
+## Requirements
+
+The latest version of Xpop requires macOS 14 (Ventura) or later. It works on Apple Silicon Macs but has not been tested on Intel-based Macs.
+
+## Installation
+
+Double-click the software to launch the installer, then drag Xpop.app into the Applications folder to complete the installation, as shown in the interface below.
+
+<Image
+  src="/images/guide/xpop-install.png"
+  width="1156"
+  height="702"
+  alt="xpop-install"
+/>
+
+### Granting Accessibility permission
+
+Upon first use, the system will prompt you to grant Accessibility Access. As shown in the image below, click "Open System Settings" to proceed to the system settings.
+
+<Image
+  src="/images/guide/xpop-accessibility.png"
+  width="1270"
+  height="480"
+  alt="xpop-accessibility"
+/>
+
+Now click Open System Settings and you will be taken to the Security & Privacy pane of System Preferences. On macOS 14.0 and above it looks like this:
+
+<Image
+  src="/images/guide/xpop-settings.png"
+  width="1610"
+  height="1346"
+  alt="xpop-settings"
+/>
+
+### Enable Xpop
+
+In the final step, you need to click the xpop icon in the status bar and enable xpop from the menu.
+
+<Image
+  src="/images/guide/xpop-menubar.png"
+  width="582"
+  height="310"
+  alt="xpop-menubar"
+/>
+
+### Why is Accessibility permission needed?
+
+Xpop relies on macOS's Accessibility API to function, which allows it to read the text you highlight in other apps. This feature is essential for Xpop to work, so enabling Accessibility permissions is required to use the tool.
+
+Xpop only accesses the text you select through the Accessibility API and processes everything locally on your Mac. Your selected text is never stored, shared, or sent anywhere unless you intentionally trigger an action that requires internet access, like searching the web.
