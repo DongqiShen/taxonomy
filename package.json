@@ -10,9 +10,9 @@
     "dev": "concurrently \"contentlayer dev\" \"next dev\"",
     "build": "contentlayer build && next build",
     "turbo": "next dev --turbo",
-    "start": "next start",
+    "start": "next start -p 3030",
     "lint": "next lint",
-    "preview": "next build && next start",
+    "preview": "next build && next start -p 3030",
     "postinstall": "prisma generate",
     "docker-dev": "./docker-run.sh"
   },
