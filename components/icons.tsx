@@ -49,7 +49,7 @@ export const XpopLogo = ({ ...props }: LucideProps) => (
 );
 
 export const Icons = {
-  logo: Command,//XpopLogo,
+  logo: XpopLogo,
   close: X,
   spinner: Loader2,
   chevronLeft: ChevronLeft,
@@ -70,7 +70,6 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
-  // gitHub: Command,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
