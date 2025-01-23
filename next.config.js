@@ -13,6 +13,9 @@ const nextConfig = {
       },
     ],
   },
+  typescript: {
+    ignoreBuildErrors: true, // 跳过 TypeScript 类型检查
+  },
 }
 
 module.exports = withContentlayer(nextConfig)

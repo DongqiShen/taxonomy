@@ -1,3 +1,4 @@
+import type { LucideIcon, LucideProps } from "lucide-react"
 import {
   AlertTriangle,
   ArrowRight,
@@ -12,7 +13,6 @@ import {
   Image,
   Laptop,
   Loader2,
-  LucideProps,
   Moon,
   MoreVertical,
   Pizza,
@@ -23,7 +23,6 @@ import {
   Twitter,
   User,
   X,
-  type Icon as LucideIcon,
 } from "lucide-react"
 
 export type Icon = LucideIcon
@@ -50,7 +49,7 @@ export const XpopLogo = ({ ...props }: LucideProps) => (
 );
 
 export const Icons = {
-  logo: XpopLogo,
+  logo: Command,//XpopLogo,
   close: X,
   spinner: Loader2,
   chevronLeft: ChevronLeft,
@@ -71,6 +70,7 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
+  // gitHub: Command,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

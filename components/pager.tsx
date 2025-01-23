@@ -46,7 +46,7 @@ export function DocsPager({ doc }: DocsPagerProps) {
 }
 
 export function GuidesPager({ guide }: GuidesPagerProps) {
-  const pager = getPagerForDoc(guide)
+  const pager = getPagerForGuide(guide)
 
   if (!pager) {
     return null
