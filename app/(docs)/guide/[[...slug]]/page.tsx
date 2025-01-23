@@ -4,7 +4,7 @@ import { allDocs, allGuides } from "contentlayer/generated"
 import { getTableOfContents } from "@/lib/toc"
 import { Mdx } from "@/components/mdx-components"
 import { DocsPageHeader } from "@/components/page-header"
-import { DocsPager } from "@/components/pager"
+import { DocsPager, GuidesPager } from "@/components/pager"
 import { DashboardTableOfContents } from "@/components/toc"
 
 import "@/styles/mdx.css"
@@ -95,7 +95,7 @@ export default async function DocPage({ params }: DocPageProps) {
         <DocsPageHeader heading={doc.title} text={doc.description} />
         <Mdx code={doc.body.code} />
         <hr className="my-4 md:my-6" />
-        <DocsPager doc={doc} />
+        <GuidesPager guide={doc} />
       </div>
       <div className="hidden text-sm xl:block">
         <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">
