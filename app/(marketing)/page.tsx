@@ -121,7 +121,7 @@ export default async function IndexPage() {
           </div>
 
         </div>
-        <div className="mx-auto text-center max-w-4xl">
+        <div className="mx-auto max-w-4xl text-center">
           <p id="footnote-1" className="text-sm text-gray-600">
             <sup className="text-xs text-gray-500">1</sup> 
             PopClip is an exceptional product with powerful and well-developed plugin functionality. 
