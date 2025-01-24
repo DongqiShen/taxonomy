@@ -24,7 +24,7 @@ jobs:
           echo "$VPS_SSH_KEY" > $SSH_KEY_FILE
           chmod 600 $SSH_KEY_FILE
 
-          ssh -o StrictHostKeyChecking=no -i $SSH_KEY_FILE -p $VPS_PORT $VPS_USER@$VPS_HOST "
+          ssh -o StrictHostKeyChecking=no -i $SSH_KEY_FILE -p $VPS_PORT $VPS_USER@$VPS_HOST '
             cd /home/deployer/taxonomy &&
             # 强制加载 bashrc 或 zshrc
             if [ -f ~/.bashrc ]; then
@@ -45,6 +45,6 @@ jobs:
             npm install -g pnpm  && # Install pnpm globally &&
             # 重新启动进程
             nohup pnpm preview > /home/deployer/taxonomy/preview.log 2>&1 &
-          "
+          '
 
           rm -f $SSH_KEY_FILE
