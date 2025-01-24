@@ -41,6 +41,8 @@ jobs:
             fi &&
             # 更新代码
             git pull &&
+            node --version &&
+            npm --version &&
             npm install -g pnpm  && # Install pnpm globally &&
             # 重新启动进程
             nohup pnpm preview > /home/deployer/taxonomy/preview.log 2>&1 &
