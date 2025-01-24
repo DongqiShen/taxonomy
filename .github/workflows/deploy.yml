@@ -30,6 +30,7 @@ jobs:
             if [ -f ~/.bashrc ]; then
                 echo "Hello World"
                 source ~/.bashrc
+                which pnpm
             fi &&
             # 查找并杀死监听 3030 端口的进程
             PID=$(lsof -t -i :3030)
@@ -38,7 +39,6 @@ jobs:
             fi &&
             # 更新代码
             git pull &&
-            which pnpm &&
             # 重新启动进程
             nohup pnpm preview > /home/deployer/taxonomy/preview.log 2>&1 &
           "
