@@ -2,49 +2,30 @@ name: Deploy to VPS
 
 on:
   push:
-    branches:
-      - main # 假设您的主分支是 main，如果是 master 请替换为 master
+    branches: [main] # 当 main 分支有代码推送时触发
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # 运行在最新的 Ubuntu runner 上
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout code # 步骤 1: 检出代码 (仍然需要在 runner 上检出代码，但这次检出主要是为了触发 workflow，实际部署的代码需要在 VPS 上拉取)
+        uses: actions/checkout@v4
 
-      - name: Deploy to VPS
+      - name: Deploy to VPS via SSH # 步骤 2: 通过 SSH 部署到 VPS
+        uses: appleboy/ssh-action@master # 使用 appleboy/ssh-action 这个 action 来执行 SSH 命令
         env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_PORT: ${{ secrets.VPS_PORT }}
-          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
-          VPS_USER: ${{ secrets.VPS_USER }}
-        run: |
-          SSH_KEY_FILE=$(mktemp)
-          echo "$VPS_SSH_KEY" > $SSH_KEY_FILE
-          chmod 600 $SSH_KEY_FILE
-          ssh -o StrictHostKeyChecking=no -i $SSH_KEY_FILE -p $VPS_PORT $VPS_USER@$VPS_HOST '
-            cd /home/deployer/taxonomy &&
-            # 强制加载 bashrc 或 zshrc
-            if [ -f ~/.bashrc ]; then
-                echo "Hello World"
-                source ~/.bashrc
-            fi &&
-            whoami &&
-            echo "User: $(whoami)" &&
-            echo "Shell: $SHELL" &&
-            echo "PATH: $PATH" &&
-            # 查找并杀死监听 3030 端口的进程
-            PID=$(lsof -t -i :3030)
-            if [ -n "$PID" ]; then
-              kill $PID
-            fi &&
-            # 更新代码
-            git pull &&
-            node --version &&
-            npm --version &&
-            npm install -g pnpm  && # Install pnpm globally &&
-            # 重新启动进程
-            nohup pnpm preview > /home/deployer/taxonomy/preview.log 2>&1 &
-          '
-          rm -f $SSH_KEY_FILE
+          HOST: ${{ secrets.VPS_HOST }} # VPS 主机地址，从 GitHub secrets 中获取
+          PORT: ${{ secrets.VPS_PORT }} # VPS 端口，从 GitHub secrets 中获取
+          USERNAME: ${{ secrets.VPS_USER }} # VPS 用户名，从 GitHub secrets 中获取
+          KEY: ${{ secrets.VPS_SSH_KEY }} # VPS SSH 私钥，从 GitHub secrets 中获取
+        with:
+          host: ${{ env.HOST }}
+          port: ${{ env.PORT }}
+          username: ${{ env.USERNAME }}
+          key: ${{ env.KEY }}
+          script: |
+            cd /home/deployer/taxonomy # 替换为 VPS 上你的项目路径
+            git pull origin main       # **新增步骤：拉取最新代码**
+            chmod +x docker-run.sh     # 确保 docker-run.sh 脚本有执行权限
+            ./docker-run.sh           # 执行 docker-run.sh 脚本进行部署
