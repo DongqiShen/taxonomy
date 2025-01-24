@@ -38,6 +38,7 @@ jobs:
             fi &&
             # 更新代码
             git pull &&
+            which pnpm &&
             # 重新启动进程
             nohup pnpm preview > /home/deployer/taxonomy/preview.log 2>&1 &
           "
