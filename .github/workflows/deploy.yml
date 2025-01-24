@@ -33,8 +33,6 @@ jobs:
             fi &&
             # 更新代码
             git pull &&
-            # 安装依赖
-            /root/.local/share/pnpm/pnpm install &&
             # 重新启动进程
             nohup /root/.local/share/pnpm/pnpm preview > /home/deployer/taxonomy/preview.log 2>&1 &
           "
