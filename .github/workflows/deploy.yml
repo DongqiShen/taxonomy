@@ -26,9 +26,9 @@ jobs:
 
           ssh -o StrictHostKeyChecking=no -i $SSH_KEY_FILE -p $VPS_PORT $VPS_USER@$VPS_HOST "
             cd /home/deployer/taxonomy &&
-            # 查找并杀死正在运行的进程
-            if pgrep -f 'pnpm preview'; then
-              pkill -f 'pnpm preview'
+            # 查找并杀死监听 3030 端口的进程
+            if lsof -i :3030; then
+              kill $(lsof -t -i :3030)
             fi &&
             # 更新代码
             git pull &&
