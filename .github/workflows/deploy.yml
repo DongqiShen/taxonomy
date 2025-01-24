@@ -31,6 +31,7 @@ jobs:
                 echo "Hello World"
                 source ~/.bashrc
             fi &&
+            whoami &&
             echo "User: $(whoami)" &&
             echo "Shell: $SHELL" &&
             echo "PATH: $PATH" &&
