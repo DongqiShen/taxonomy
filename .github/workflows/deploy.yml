@@ -28,6 +28,7 @@ jobs:
             cd /home/deployer/taxonomy &&
             # 强制加载 bashrc 或 zshrc
             if [ -f ~/.bashrc ]; then
+                echo "Hello World"
                 source ~/.bashrc
             fi &&
             # 查找并杀死监听 3030 端口的进程
