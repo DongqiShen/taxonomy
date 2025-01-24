@@ -30,8 +30,10 @@ jobs:
             if [ -f ~/.bashrc ]; then
                 echo "Hello World"
                 source ~/.bashrc
-                which pnpm
             fi &&
+            echo "User: $(whoami)" &&
+            echo "Shell: $SHELL" &&
+            echo "PATH: $PATH" &&
             # 查找并杀死监听 3030 端口的进程
             PID=$(lsof -t -i :3030)
             if [ -n \"$PID\" ]; then
