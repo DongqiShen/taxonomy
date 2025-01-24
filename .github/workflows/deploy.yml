@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main # 假设您的主分支是 main，如果是 master 请替换为 master
+      - main
 
 jobs:
   deploy:
@@ -25,10 +25,10 @@ jobs:
           chmod 600 $SSH_KEY_FILE
 
           ssh -o StrictHostKeyChecking=no -i $SSH_KEY_FILE -p $VPS_PORT $VPS_USER@$VPS_HOST '
+            set -e # 遇到错误立即退出
             cd /home/deployer/taxonomy &&
             # 强制加载 bashrc 或 zshrc
             if [ -f ~/.bashrc ]; then
-                echo "Hello World"
                 source ~/.bashrc
             fi &&
             whoami &&
@@ -42,9 +42,11 @@ jobs:
             fi &&
             # 更新代码
             git pull &&
-            npm install -g pnpm  && # Install pnpm globally &&
+            # 确保 pnpm 使用的是正确的版本
+            nvm use 18 &&
+            npm i -g pnpm &&
             # 重新启动进程
-            nohup pnpm preview > /home/deployer/taxonomy/preview.log 2>&1 &
+            nohup /usr/local/bin/pnpm preview > /home/deployer/taxonomy/preview.log 2>&1 &
           '
 
           rm -f $SSH_KEY_FILE
