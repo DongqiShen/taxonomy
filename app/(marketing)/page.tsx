@@ -53,7 +53,7 @@ export default async function IndexPage() {
             Xpop is an open-source and free tool that instantly provides useful actions when you select text in any app.
           </p>
           <div className="space-x-4">
-            <Link href="/" className={cn(buttonVariants({ size: "lg" }))}>
+            <Link href="https://github.com/DongqiShen/Xpop/releases/download/v0.0.1-beta/Xpop.dmg" className={cn(buttonVariants({ size: "lg" }))}>
               Download
             </Link>
             <Link
