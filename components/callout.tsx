@@ -19,6 +19,7 @@ export function Callout({
         {
           "bg-red-50 dark:bg-red-900": type === "danger",
           "bg-yellow-50 dark:bg-yellow-900": type === "warning",
+          "bg-blue-50 dark:bg-blue-900": type === "info", // 添加 info 类型的背景颜色
         },
         "text-gray-900 dark:text-gray-100" // 默认文本颜色
       )}

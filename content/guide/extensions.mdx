@@ -6,3 +6,37 @@ description: Guide for installing Xpop extensions.
 Extensions allow you to add new actions to Xpop, expanding its functionality. You can install pre-built extensions or even create custom ones to suit your needs.
 
 Manage your extensions—configure, rearrange, or remove them in Xpop's settings.
+
+## Installing a snippet
+
+Like Popclip, Xpop allows extensions to be loaded directly from a unique plain text format known as a "snippet". Snippets are ideal for quickly creating extensions and sharing them in plain text format, eliminating the need to create a separate file.
+
+Here is an example snippet for an extension that searches Wikipedia for the selected text:
+
+```yaml
+# xpop Wiktionary search with subdomain option
+name: Wiktionary
+icon: iconify:ooui:logo-wiktionary
+url: https://{popclip option subdomain}.wiktionary.org/wiki/{popclip text}
+options:
+  - type: string
+    identifier: subdomain
+    label: Site subdomain
+    defaultValue: en
+```
+
+To install that, you select the text and then click the action Install Extension "Wikipedia" that appears in the Xpop bar.
+
+<Image
+  src="/images/guide/extension_installation_snippet.gif"
+  alt="extension_installation_snippet"
+  width={688}
+  height={476}
+/>
+
+<Callout type="info">
+  Notice that the first line of the snippet starts with **# xpop** or
+  **#popclip**. This is a special marker that tells Xpop that this is a snippet.
+</Callout>
+
+## Installing a package

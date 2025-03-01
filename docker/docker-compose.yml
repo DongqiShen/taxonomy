@@ -13,8 +13,8 @@ services:
     working_dir: /app
     volumes:
       - ../:/app
-      - ./.env.local:/app/.env.local
-    command: [ "pnpm", "dev" ]
+      - ../.env.local:/app/.env.local
+    command: [ "pnpm", "preview" ]
 
   db:
     image: mysql:5.7
